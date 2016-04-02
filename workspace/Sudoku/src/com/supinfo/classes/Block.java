@@ -28,7 +28,7 @@ public class Block {
 	
 	public void setupLine(int line){
 		for (int i = 0; i < 3; i++) {
-			selectNumber(i);
+			selectNumber(3*line + i);
 		}
 	}
 	
