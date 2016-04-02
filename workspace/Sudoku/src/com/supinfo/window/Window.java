@@ -48,7 +48,7 @@ public class Window extends JFrame implements ActionListener{
 		cmbMessageList.setBounds(220, 20, 100, 25);	  
 		button.setBounds(350, 20, 100, 25);
 		lvl.setBounds(100, 20, 100, 30);
-		lblText.setBounds(200, 70, 60, 30);
+		lblText.setBounds(150, 70, 300, 30);;
 		
 		button.addActionListener(this);
 		
@@ -72,17 +72,25 @@ public class Window extends JFrame implements ActionListener{
 	}
 	
 	private void createGameBoard(int level){
-		
-		for (int blockLine = 0; blockLine < 3; blockLine++) {
-			for (int line = 0; line < 3; line++) {
-				for (int blockColone = 0; blockColone < 3; blockColone++) {
-					blocks[3*blockLine + blockColone].setupLine(line);
+		int tourn = 0;
+		while (true) {
+			try {
+				for (int blockLine = 0; blockLine < 3; blockLine++) {
+					for (int line = 0; line < 3; line++) {
+						for (int blockColone = 0; blockColone < 3; blockColone++) {
+								blocks[3*blockLine + blockColone].setupLine(line);
+						}
+					}
 				}
+				break;
+			} catch (Exception e) {
+				reset();
+				tourn++;
 			}
 		}
 		
 		
-		lblText.setText("Let's go " + level);
+		lblText.setText("Let's go, Nombre d'essai : " + tourn);
 	}
 	
 	

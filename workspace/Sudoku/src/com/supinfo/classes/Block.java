@@ -35,7 +35,7 @@ public class Block {
 		}
 	}
 	
-	public void setupLine(int line){
+	public void setupLine(int line) throws Exception{
 		for (int i = 0; i < 3; i++) {
 			
 			ArrayList<Integer> mylist = parent.getAvailableAt(this.x, this.y, line, i);
@@ -44,9 +44,10 @@ public class Block {
 		}
 	}
 	
-	public void selectRandomNumber(int i,ArrayList<Integer> mylist){
+	public void selectRandomNumber(int i,ArrayList<Integer> mylist) throws Exception{
 		if (mylist.size() == 0) {
 			System.out.println("Error null size random !");
+			throw new Exception();
 		}
 		Random randomGenerator = new Random();
 		int index = randomGenerator.nextInt(mylist.size());
