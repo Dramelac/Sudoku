@@ -96,7 +96,7 @@ public class Window extends JFrame implements ActionListener{
 	
 	public ArrayList<Integer> getAvailableAt(int BlockX, int BlockY, int DigitX, int DigitY){
 		
-		System.out.println("Block " + BlockX + "/" + BlockY + " || Digit selct : " + DigitX + "/" + DigitY);
+		//System.out.println("Block " + BlockX + "/" + BlockY + " || Digit selct : " + DigitX + "/" + DigitY);
 		ArrayList<Integer> blockArray = blocks[BlockX*3 + BlockY].getNumbersAvailableInBlock();
 		ArrayList<Integer> lineArray = this.getLineArray(3*BlockX, DigitX);
 		ArrayList<Integer> coloneArray = this.getColoneArray(BlockY, DigitY);
