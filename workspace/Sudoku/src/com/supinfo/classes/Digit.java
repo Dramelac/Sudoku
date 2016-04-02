@@ -1,10 +1,13 @@
 package com.supinfo.classes;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 import com.supinfo.window.DialogBox;
 
@@ -43,6 +46,11 @@ public class Digit implements ActionListener{
 		String temp = Integer.toString(this.value);
 		System.out.println(temp);
 		button.setText(temp);
+		Border thickBorder = new LineBorder(Color.BLACK, 5);
+		button.setBorder(thickBorder);
+		
+		
+		
 	}
 	
 	
