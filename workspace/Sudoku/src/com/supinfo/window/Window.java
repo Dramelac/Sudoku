@@ -74,7 +74,7 @@ public class Window extends JFrame implements ActionListener{
 		for (int blockLine = 0; blockLine < 3; blockLine++) {
 			for (int line = 0; line < 3; line++) {
 				for (int blockColone = 0; blockColone < 3; blockColone++) {
-					blocks[blockLine + blockColone].setupLine(line);
+					blocks[3*blockLine + blockColone].setupLine(line);
 				}
 			}
 		}
