@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.supinfo.window.DialogBox;
+
 public class Digit implements ActionListener{
 	
 	private int value = 0;
@@ -27,7 +29,7 @@ public class Digit implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		if (source == button){
-			
+			DialogBox choose = new DialogBox();
 		}
 	}
 

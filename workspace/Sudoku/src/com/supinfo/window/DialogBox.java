@@ -19,8 +19,7 @@ public class DialogBox extends JFrame implements ActionListener{
 	private JButton buttonNo = new JButton("No");
 	private JLabel enterNumber = new JLabel("Enter a number");
 
-	public DialogBox(String arg){
-		this.setTitle(arg);
+	public DialogBox(){
 		this.setSize(480, 600);
 		this.setVisible(true);
 		
