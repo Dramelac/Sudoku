@@ -35,11 +35,11 @@ public class Window extends JFrame implements ActionListener{
 		}
 		
 
-		this.generate();
+		this.generateGraphic();
 		
 	}
 	
-	public void generate(){
+	public void generateGraphic(){
 		 
 		pan.setLayout(null);
 
@@ -51,7 +51,7 @@ public class Window extends JFrame implements ActionListener{
 		
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				blocks[3*i + j].generate(i, j, pan);
+				blocks[3*i + j].generateGraphic(i, j, pan);
 			}
 		}
 		
