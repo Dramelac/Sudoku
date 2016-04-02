@@ -1,5 +1,8 @@
 package com.supinfo.window;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -8,7 +11,7 @@ import javax.swing.JPanel;
 
 import com.supinfo.classes.Block;
 
-public class Window extends JFrame {
+public class Window extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -61,25 +64,15 @@ public class Window extends JFrame {
 		  
 		this.setContentPane(pan);
 	}
-	/*	 
+	
 	@Override
-		public void actionPerformed(ActionEvent e){
-			 Object source = e.getSource();
-			 	if (source == button){
-			 		if (inputUser.getText().equals("admin") && String.valueOf(inputPwd.getPassword()).equals("admin")){
-			 			hiddentext.setText("Welcome");
-			 			success.active(inputUser.getText(), this);
-			 			success.setVisible(true);
-			 			this.setVisible(false);
-			 			//this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-			 			//JOptionPane.showMessageDialog(this, "Correct  password.");
-			 		} else {
-			 			hiddentext.setText("Bad password");
-			 			//JOptionPane.showMessageDialog(this, "Incorrect  password.");
-			 	}
-			 }
-		 }		 		 
-	*/
+	public void actionPerformed(ActionEvent e){
+		Object source = e.getSource();
+	 	if (source == button){
+	 		
+	 	}
+	}
+	 	
 
 }
 
