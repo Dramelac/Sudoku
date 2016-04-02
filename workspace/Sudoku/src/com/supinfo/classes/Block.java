@@ -1,5 +1,8 @@
 package com.supinfo.classes;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import javax.swing.JPanel;
 
 public class Block {
@@ -21,6 +24,40 @@ public class Block {
 				digits[3 * i + j].generateGraphic(i, j, x * 120, y * 120, pan);
 			}
 		}
+	}
+	
+	public void setupLine(int line){
+		for (int i = 0; i < 3; i++) {
+			selectNumber(i);
+		}
+	}
+	
+	public void selectNumber(int i){
+		ArrayList<Integer> mylist = getNumbersAvailableInBlock();
+		
+		Random randomGenerator = new Random();
+		int index = randomGenerator.nextInt(mylist.size());
+        digits[i].setValue(mylist.get(index));
+	}
+	
+	public ArrayList<Integer> getNumbersAvailableInBlock(){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(9);
+		listInt.add(1);
+		listInt.add(2);
+		listInt.add(3);
+		listInt.add(4);
+		listInt.add(5);
+		listInt.add(6);
+		listInt.add(7);
+		listInt.add(8);
+		listInt.add(9);
+		
+		for (Digit digit : digits) {
+			int i = digit.getValue();
+			listInt.remove((Integer) i);
+		}
+		System.out.println(listInt);
+		return listInt;
 	}
 
 }

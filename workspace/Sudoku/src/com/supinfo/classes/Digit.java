@@ -36,6 +36,14 @@ public class Digit implements ActionListener{
 	public int getValue() {
 		return value;
 	}
+
+	
+	public void setValue(int value) {
+		this.value = value;
+		String temp = Integer.toString(this.value);
+		System.out.println(temp);
+		button.setText(temp);
+	}
 	
 	
 }
