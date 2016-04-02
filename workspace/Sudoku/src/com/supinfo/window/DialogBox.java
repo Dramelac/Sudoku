@@ -1,6 +1,5 @@
 package com.supinfo.window;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,7 +11,8 @@ import javax.swing.JPanel;
 
 public class DialogBox extends JFrame implements ActionListener{
 	
-
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel pan = new JPanel();
 	private String[] messageInt = {"1","2","3","4","5","6","7","8","9"};
 	private JComboBox<String> cmbIntList = new JComboBox<String>(messageInt);

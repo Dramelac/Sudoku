@@ -34,6 +34,7 @@ public class Digit implements ActionListener{
 		Object source = e.getSource();
 		if (source == button){
 			DialogBox choose = new DialogBox();
+			choose.setVisible(true);
 		}
 	}
 
@@ -47,7 +48,7 @@ public class Digit implements ActionListener{
 		String temp = Integer.toString(this.value);
 		System.out.println(temp);
 		button.setText(temp);
-		Border thickBorder = new LineBorder(null, 1);
+		Border thickBorder = new LineBorder(Color.gray, 1);
 		button.setBorder(thickBorder);
 		
 		
