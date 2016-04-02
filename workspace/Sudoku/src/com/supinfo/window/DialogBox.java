@@ -1,15 +1,18 @@
 package com.supinfo.window;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class DialogBox extends JFrame implements ActionListener{
 	
-	
+
+	private JPanel pan = new JPanel();
 	private String[] messageInt = {"Easy", "Medium", "Hard"};
 	private JComboBox<String> cmbIntList = new JComboBox<String>(messageInt);
 	private JButton buttonYes = new JButton("Yes");
@@ -41,6 +44,12 @@ public class DialogBox extends JFrame implements ActionListener{
 		pan.add(enterNumber);
 		
 		this.setContentPane(pan);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

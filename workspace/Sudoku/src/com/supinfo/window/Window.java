@@ -46,8 +46,9 @@ public class Window extends JFrame implements ActionListener{
 		cmbMessageList.setBounds(220, 20, 100, 25);	  
 		button.setBounds(350, 20, 100, 25);
 		lvl.setBounds(100, 20, 100, 30);
-		lblText.setBounds(100, 50, 60, 30);
-
+		lblText.setBounds(200, 70, 60, 30);
+		
+		button.addActionListener(this);
 		
 		// Setup Blocks //
 		
@@ -70,13 +71,16 @@ public class Window extends JFrame implements ActionListener{
 	
 	private void createGameBoard(int level){
 		
+		
+		
+		lblText.setText("Let's go " + level);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
 		Object source = e.getSource();
 	 	if (source == button){
-	 		createGameBoard(0);
+	 		createGameBoard(cmbMessageList.getSelectedIndex());
 	 	}
 	}
 	 	
