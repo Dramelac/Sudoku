@@ -28,7 +28,7 @@ public class Window extends JFrame implements ActionListener{
 		this.setTitle(arg);
 		this.setSize(480, 600);
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		
 		// Build all objects
 		for (int i = 0; i < blocks.length; i++) {
