@@ -1,33 +1,41 @@
 package com.supinfo.window;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+
+import com.supinfo.classes.Block;
 
 public class Window extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private JPanel pan = new JPanel();
 	private JButton button = new JButton("Generate");
 	private JLabel lvl = new JLabel("Choose your level");
 	private String[] messageStrings = {"facile", "normal", "difficile"};
 	private JComboBox<String> cmbMessageList = new JComboBox<String>(messageStrings);
-	private JLabel lblText = new JLabel();
+	//private JLabel lblText = new JLabel();
+	
+	private Block[] blocks = new Block [9];
 
 	public Window(String arg) {
-		// TODO Auto-generated constructor stub
 		this.setTitle(arg);
 		this.setSize(640, 480);
 		this.setVisible(true);
-		this.generate();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		for (int i = 0; i < blocks.length; i++) {
+			blocks[i] = new Block();
+		}
+		
+
+		this.generate();
+		
 	}
+	
 	public void generate(){
 		 
 		pan.setLayout(null);
@@ -35,6 +43,18 @@ public class Window extends JFrame {
 		cmbMessageList.setBounds(220, 20, 100, 25);	  
 		button.setBounds(350, 20, 100, 25);
 		lvl.setBounds(100, 20, 100, 30);
+		
+		// Setup Blocks //
+		
+		blocks[0].generate(0, 0, pan);
+		/*
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				blocks[3*i + j].generate(i, j, pan);
+			}
+		}*/
+		
+		// End Stup Blocks
 		  
 		pan.add(cmbMessageList);
 		pan.add(lvl);
