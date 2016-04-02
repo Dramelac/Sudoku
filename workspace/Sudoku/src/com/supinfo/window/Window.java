@@ -18,9 +18,9 @@ public class Window extends JFrame implements ActionListener{
 	private JPanel pan = new JPanel();
 	private JButton button = new JButton("Generate");
 	private JLabel lvl = new JLabel("Choose your level");
-	private String[] messageStrings = {"facile", "normal", "difficile"};
+	private String[] messageStrings = {"Ease", "Medium", "Hard"};
 	private JComboBox<String> cmbMessageList = new JComboBox<String>(messageStrings);
-	//private JLabel lblText = new JLabel();
+	private JLabel lblText = new JLabel();
 	
 	private Block[] blocks = new Block [9];
 
