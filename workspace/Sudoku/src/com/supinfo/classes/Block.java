@@ -17,7 +17,7 @@ public class Block {
 	public void generate(int x, int y, JPanel pan){
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				digits[3*i + j].generate(i, j, pan);
+				digits[3*i + j].generate(i, j, x * 120, y * 120, pan);
 			}
 		}
 	}

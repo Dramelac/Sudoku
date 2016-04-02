@@ -23,7 +23,7 @@ public class Window extends JFrame {
 
 	public Window(String arg) {
 		this.setTitle(arg);
-		this.setSize(640, 480);
+		this.setSize(480, 600);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -46,13 +46,11 @@ public class Window extends JFrame {
 		
 		// Setup Blocks //
 		
-		blocks[0].generate(0, 0, pan);
-		/*
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				blocks[3*i + j].generate(i, j, pan);
 			}
-		}*/
+		}
 		
 		// End Stup Blocks
 		  
