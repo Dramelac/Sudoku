@@ -36,7 +36,6 @@ public class DialogBox extends JFrame implements ActionListener{
 		
 	}
 	public void generateGraphic(){
-		 
 		pan.setLayout(null);
 		
 		
