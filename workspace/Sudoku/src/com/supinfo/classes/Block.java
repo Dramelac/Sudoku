@@ -73,5 +73,12 @@ public class Block {
 		
 		return listInt;
 	}
+	
+	
+	public void reset(){
+		for (Digit digit : digits) {
+			digit.reset();
+		}
+	}
 
 }

@@ -51,5 +51,10 @@ public class Digit implements ActionListener{
 		
 	}
 	
+	public void reset(){
+		this.value = 0;
+		button.setText("");
+	}
+	
 	
 }

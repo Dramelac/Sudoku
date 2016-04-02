@@ -93,7 +93,7 @@ public class Window extends JFrame implements ActionListener{
 		ArrayList<Integer> lineArray = this.getLineArray(3*BlockX, DigitX);
 		System.out.println(lineArray);
 		
-		return lineArray;
+		return intersection(blockArray, lineArray);
 	}
 	
 	
@@ -111,10 +111,29 @@ public class Window extends JFrame implements ActionListener{
 	}
 	
 	
+	public ArrayList<Integer> intersection(ArrayList<Integer> listA, ArrayList<Integer> listB){
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		for (Integer number : listA) {
+			if (listB.contains(number)) {
+				list.add(number);
+			}
+		}
+		
+		return list;
+	}
+	
+	public void reset(){
+		for (Block block : blocks) {
+			block.reset();
+		}
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e){
 		Object source = e.getSource();
 	 	if (source == button){
+	 		reset();
 	 		createGameBoard(cmbMessageList.getSelectedIndex());
 	 	}
 	}
