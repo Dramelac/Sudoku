@@ -59,9 +59,8 @@ public class DialogBox extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
-		if (source == buttonNo){
-			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			//this.setVisible(false);
+		if (source == buttonNo){			
+			this.setVisible(false);
 			
 		} else if (source == buttonYes) {
 			digit.setValue(cmbIntList.getSelectedIndex()+1);
