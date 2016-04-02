@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.supinfo.classes.Digit;
+
 public class DialogBox extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -20,13 +22,16 @@ public class DialogBox extends JFrame implements ActionListener{
 	private JButton buttonNo = new JButton("No");
 	private JLabel enterNumber = new JLabel("Enter a number");
 	
+	private Digit digit;
+	
 
-	public DialogBox(){
+	public DialogBox(Digit digit){
 		this.setSize(200, 138);
 		this.setVisible(true);
 		this.setLocation(140,231);
 		this.generateGraphic();
 		
+		this.digit = digit;
 		
 		
 	}
@@ -36,9 +41,12 @@ public class DialogBox extends JFrame implements ActionListener{
 		
 		
 		cmbIntList.setBounds(75, 35, 50, 25);	  
-		buttonNo.setBounds(92, 75, 92, 25);
-		buttonYes.setBounds(0, 75, 92, 25);	
+		buttonNo.setBounds(0, 75, 92, 25);
+		buttonYes.setBounds(92, 75, 92, 25);	
 		enterNumber.setBounds(50, 0, 180, 30);
+		
+		buttonNo.addActionListener(this);
+		buttonYes.addActionListener(this);
 		
 		pan.add(cmbIntList);
 		pan.add(buttonNo);
@@ -50,7 +58,12 @@ public class DialogBox extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		Object source = e.getSource();
+		if (source == buttonNo){
+			
+		} else if (source == buttonYes) {
+			digit.setValue(cmbIntList.getSelectedIndex()+1);
+		}
 		
 	}
 

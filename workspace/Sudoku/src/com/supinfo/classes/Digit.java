@@ -20,6 +20,8 @@ public class Digit implements ActionListener{
 	
 	public Digit() {
 		super();
+		Border thickBorder = new LineBorder(Color.gray, 1);
+		button.setBorder(thickBorder);
 	}
 	
 	public void generateGraphic(int x, int y, int a, int b, JPanel pan){
@@ -33,7 +35,7 @@ public class Digit implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		if (source == button){
-			DialogBox choose = new DialogBox();
+			DialogBox choose = new DialogBox(this);
 			choose.setVisible(true);
 		}
 	}
@@ -45,13 +47,7 @@ public class Digit implements ActionListener{
 	
 	public void setValue(int value) {
 		this.value = value;
-		String temp = Integer.toString(this.value);
-		System.out.println(temp);
-		button.setText(temp);
-		Border thickBorder = new LineBorder(Color.gray, 1);
-		button.setBorder(thickBorder);
-		
-		
+		button.setText(Integer.toString(this.value));
 		
 	}
 	

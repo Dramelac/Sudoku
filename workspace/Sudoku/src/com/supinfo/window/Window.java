@@ -2,6 +2,7 @@ package com.supinfo.window;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -82,6 +83,15 @@ public class Window extends JFrame implements ActionListener{
 		
 		lblText.setText("Let's go " + level);
 	}
+	
+	
+	public ArrayList<Integer> getAvailableAt(int x, int y){
+		
+		System.out.println(x + "/" + y);
+		
+		return null;
+	}
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
