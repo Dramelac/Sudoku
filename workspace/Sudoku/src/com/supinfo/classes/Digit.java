@@ -25,9 +25,9 @@ public class Digit implements ActionListener{
 	}
 	
 	public void generateGraphic(int x, int y, int a, int b, JPanel pan){
-		button.setBounds(x*35 + 60 + a, y*35 + 150 + b, 30, 30);
+		button.setBounds(y*35 + 60 + a, x*35 + 150 + b, 30, 30);
 		button.addActionListener(this);
-		
+
 		pan.add(button);
 	}
 

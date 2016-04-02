@@ -3,6 +3,7 @@ package com.supinfo.window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -55,11 +56,11 @@ public class Window extends JFrame implements ActionListener{
 		
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				blocks[3*i + j].generateGraphic(i, j, pan);
+				blocks[3*i + j].generateGraphic(i, j, pan, this);
 			}
 		}
 		
-		// End Stup Blocks
+		// End Setup Blocks
 		  
 		pan.add(cmbMessageList);
 		pan.add(lvl);
@@ -85,11 +86,28 @@ public class Window extends JFrame implements ActionListener{
 	}
 	
 	
-	public ArrayList<Integer> getAvailableAt(int x, int y){
+	public ArrayList<Integer> getAvailableAt(int BlockX, int BlockY, int DigitX, int DigitY){
 		
-		System.out.println(x + "/" + y);
+		System.out.println("Block " + BlockX + "/" + BlockY + " || Digit selct : " + DigitX + "/" + DigitY);
+		ArrayList<Integer> blockArray = blocks[BlockX*3 + BlockY].getNumbersAvailableInBlock();
+		ArrayList<Integer> lineArray = this.getLineArray(3*BlockX, DigitX);
+		System.out.println(lineArray);
 		
-		return null;
+		return lineArray;
+	}
+	
+	
+	private ArrayList<Integer> getLineArray(int Blockline, int digitLine){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+		
+		for (int i = 0; i < 3; i++) {
+			ArrayList<Integer> temp = blocks[Blockline + i].getLine(digitLine);
+			for (Integer integer : temp) {
+				listInt.remove(integer);
+			}
+		}
+		
+		return listInt;
 	}
 	
 	
