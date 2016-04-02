@@ -30,6 +30,10 @@ public class Digit implements ActionListener{
 			
 		}
 	}
+
+	public int getValue() {
+		return value;
+	}
 	
 	
 }

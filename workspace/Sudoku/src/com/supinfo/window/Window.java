@@ -18,7 +18,7 @@ public class Window extends JFrame implements ActionListener{
 	private JPanel pan = new JPanel();
 	private JButton button = new JButton("Generate");
 	private JLabel lvl = new JLabel("Choose your level");
-	private String[] messageStrings = {"Ease", "Medium", "Hard"};
+	private String[] messageStrings = {"Easy", "Medium", "Hard"};
 	private JComboBox<String> cmbMessageList = new JComboBox<String>(messageStrings);
 	private JLabel lblText = new JLabel();
 	
@@ -30,10 +30,10 @@ public class Window extends JFrame implements ActionListener{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		// Build all objects
 		for (int i = 0; i < blocks.length; i++) {
 			blocks[i] = new Block();
 		}
-		
 
 		this.generateGraphic();
 		
@@ -46,6 +46,8 @@ public class Window extends JFrame implements ActionListener{
 		cmbMessageList.setBounds(220, 20, 100, 25);	  
 		button.setBounds(350, 20, 100, 25);
 		lvl.setBounds(100, 20, 100, 30);
+		lblText.setBounds(100, 50, 60, 30);
+
 		
 		// Setup Blocks //
 		
@@ -59,17 +61,22 @@ public class Window extends JFrame implements ActionListener{
 		  
 		pan.add(cmbMessageList);
 		pan.add(lvl);
+		pan.add(lblText);
 		pan.add(button);
 
 		  
 		this.setContentPane(pan);
 	}
 	
+	private void createGameBoard(int level){
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e){
 		Object source = e.getSource();
 	 	if (source == button){
-	 		
+	 		createGameBoard(0);
 	 	}
 	}
 	 	
