@@ -74,6 +74,16 @@ public class Block {
 		return listInt;
 	}
 	
+	public ArrayList<Integer> getColone(int colone){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(3);
+		
+		for (int i = 0; i < 3; i++) {
+			listInt.add(digits[colone + 3*i].getValue());
+		}
+		
+		return listInt;
+	}
+	
 	
 	public void reset(){
 		for (Digit digit : digits) {

@@ -91,9 +91,10 @@ public class Window extends JFrame implements ActionListener{
 		System.out.println("Block " + BlockX + "/" + BlockY + " || Digit selct : " + DigitX + "/" + DigitY);
 		ArrayList<Integer> blockArray = blocks[BlockX*3 + BlockY].getNumbersAvailableInBlock();
 		ArrayList<Integer> lineArray = this.getLineArray(3*BlockX, DigitX);
-		System.out.println(lineArray);
+		ArrayList<Integer> coloneArray = this.getColoneArray(BlockY, DigitY);
+		//System.out.println(coloneArray);
 		
-		return intersection(blockArray, lineArray);
+		return intersection(blockArray, intersection(lineArray, coloneArray));
 	}
 	
 	
@@ -102,6 +103,19 @@ public class Window extends JFrame implements ActionListener{
 		
 		for (int i = 0; i < 3; i++) {
 			ArrayList<Integer> temp = blocks[Blockline + i].getLine(digitLine);
+			for (Integer integer : temp) {
+				listInt.remove(integer);
+			}
+		}
+		
+		return listInt;
+	}
+	
+	private ArrayList<Integer> getColoneArray(int BlockColone, int digitColone){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+		
+		for (int i = 0; i < 3; i++) {
+			ArrayList<Integer> temp = blocks[BlockColone + 3*i].getColone(digitColone);
 			for (Integer integer : temp) {
 				listInt.remove(integer);
 			}
