@@ -30,9 +30,13 @@ public class Block {
 		this.y = y;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				digits[3 * i + j].generateGraphic(i, j, y * 120, x * 120, pan);
+				digits[3 * i + j].generateGraphic(i, j, y * 120, x * 120, pan, this);
 			}
 		}
+	}
+	
+	public void askCheck(){
+		parent.checkWin();
 	}
 	
 	public void chooseStartDigits(int level){

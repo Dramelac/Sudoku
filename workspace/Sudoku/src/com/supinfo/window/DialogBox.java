@@ -46,6 +46,7 @@ public class DialogBox extends JFrame implements ActionListener{
 		
 		buttonNo.addActionListener(this);
 		buttonYes.addActionListener(this);
+		this.getRootPane().setDefaultButton(buttonYes);
 		
 		pan.add(cmbIntList);
 		pan.add(buttonNo);
@@ -63,6 +64,7 @@ public class DialogBox extends JFrame implements ActionListener{
 			
 		} else if (source == buttonYes) {
 			digit.setMyValue(cmbIntList.getSelectedIndex()+1);
+			digit.askCheck();
 			this.setVisible(false);
 		}
 		

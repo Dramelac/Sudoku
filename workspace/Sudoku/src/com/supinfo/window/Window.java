@@ -102,6 +102,18 @@ public class Window extends JFrame implements ActionListener{
 	}
 	
 	
+	public void checkWin(){
+		for (int blockX = 0; blockX < 3; blockX++) {
+			for (int blockY = 0; blockY < 3; blockY++) {
+				for (int digitX = 0; digitX < 3; digitX++) {
+					for (int digitY = 0; digitY < 3; digitY++) {
+						
+					}
+				}
+			}
+		}
+	}
+	
 	public ArrayList<Integer> getAvailableAt(int BlockX, int BlockY, int DigitX, int DigitY){
 		
 		//System.out.println("Block " + BlockX + "/" + BlockY + " || Digit selct : " + DigitX + "/" + DigitY);

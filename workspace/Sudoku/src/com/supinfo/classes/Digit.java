@@ -17,6 +17,7 @@ public class Digit implements ActionListener{
 	private int myValue = 0;
 	private boolean toGuess = true;
 	private JButton button = new JButton();
+	private Block parent;
 	
 	
 	public Digit() {
@@ -24,7 +25,9 @@ public class Digit implements ActionListener{
 		button.setBorder(new LineBorder(Color.gray, 1));
 	}
 	
-	public void generateGraphic(int x, int y, int a, int b, JPanel pan){
+	public void generateGraphic(int x, int y, int a, int b, JPanel pan, Block parent){
+		this.toGuess = true;
+		this.parent = parent;
 		button.setBounds(y*35 + 60 + a, x*35 + 150 + b, 30, 30);
 		button.addActionListener(this);
 
@@ -40,9 +43,15 @@ public class Digit implements ActionListener{
 		}
 	}
 	
+	public void askCheck(){
+		parent.askCheck();
+	}
+	
 	
 	public void reset(){
 		this.value = 0;
+		button.setBorder(new LineBorder(Color.gray, 1));
+		this.toGuess = true;
 		button.setText("");
 	}
 	
