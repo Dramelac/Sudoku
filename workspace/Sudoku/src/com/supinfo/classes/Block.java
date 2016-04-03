@@ -35,6 +35,25 @@ public class Block {
 		}
 	}
 	
+	public void chooseStartDigits(int level){
+		/*
+		 * Easy 2-4 / Block
+		 * Medium 3-5 / Block
+		 * Hard 4-6 / Block
+		 */
+		ArrayList<Integer> listInt = new ArrayList<Integer>(Arrays.asList(0,1,2,3,4,5,6,7,8));
+		
+		Random randomGenerator = new Random();
+		int clearNumber = 9 - (2 + level + randomGenerator.nextInt(3));
+		
+		for (int i = 0; i < clearNumber; i++) {
+			int select = listInt.get(randomGenerator.nextInt(listInt.size()));
+			listInt.remove((Integer) select);
+			digits[select].offer();
+		}
+		
+	}
+	
 	public void setupLine(int line) throws Exception{
 		for (int i = 0; i < 3; i++) {
 			

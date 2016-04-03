@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 import com.supinfo.window.DialogBox;
@@ -15,13 +14,14 @@ import com.supinfo.window.DialogBox;
 public class Digit implements ActionListener{
 	
 	private int value = 0;
+	private int myValue = 0;
+	private boolean toGuess = true;
 	private JButton button = new JButton();
 	
 	
 	public Digit() {
 		super();
-		Border thickBorder = new LineBorder(Color.gray, 1);
-		button.setBorder(thickBorder);
+		button.setBorder(new LineBorder(Color.gray, 1));
 	}
 	
 	public void generateGraphic(int x, int y, int a, int b, JPanel pan){
@@ -34,11 +34,24 @@ public class Digit implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
-		if (source == button){
+		if (source == button && toGuess){
 			DialogBox choose = new DialogBox(this);
 			choose.setVisible(true);
 		}
 	}
+	
+	
+	public void reset(){
+		this.value = 0;
+		button.setText("");
+	}
+	
+	public void offer(){
+		this.setMyValue(value);
+		this.toGuess = false;
+		button.setBorder(new LineBorder(Color.DARK_GRAY, 1));
+	}
+	
 
 	public int getValue() {
 		return value;
@@ -47,14 +60,14 @@ public class Digit implements ActionListener{
 	
 	public void setValue(int value) {
 		this.value = value;
-		button.setText(Integer.toString(this.value));
 		
 	}
-	
-	public void reset(){
-		this.value = 0;
-		button.setText("");
+
+	public void setMyValue(int myValue) {
+		this.myValue = myValue;
+		button.setText(Integer.toString(this.myValue));
 	}
+
 	
 	
 }

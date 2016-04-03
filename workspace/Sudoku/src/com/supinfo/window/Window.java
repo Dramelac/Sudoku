@@ -91,6 +91,14 @@ public class Window extends JFrame implements ActionListener{
 		
 		
 		lblText.setText("Let's go, Nombre d'essai : " + tourn);
+		chooseOffer(level);
+	}
+	
+	public void chooseOffer(int level){
+		
+		for (Block block : blocks) {
+			block.chooseStartDigits(level);
+		}
 	}
 	
 	

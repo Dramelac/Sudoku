@@ -62,7 +62,7 @@ public class DialogBox extends JFrame implements ActionListener{
 			this.setVisible(false);
 			
 		} else if (source == buttonYes) {
-			digit.setValue(cmbIntList.getSelectedIndex()+1);
+			digit.setMyValue(cmbIntList.getSelectedIndex()+1);
 			this.setVisible(false);
 		}
 		
