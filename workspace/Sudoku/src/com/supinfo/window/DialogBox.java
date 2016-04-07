@@ -46,6 +46,7 @@ public class DialogBox extends JFrame implements ActionListener{
 		
 		buttonNo.addActionListener(this);
 		buttonYes.addActionListener(this);
+		// Enter button
 		this.getRootPane().setDefaultButton(buttonYes);
 		
 		pan.add(cmbIntList);

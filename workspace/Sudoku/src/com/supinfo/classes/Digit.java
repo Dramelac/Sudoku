@@ -33,6 +33,18 @@ public class Digit implements ActionListener{
 
 		pan.add(button);
 	}
+	
+	public void surrende(){
+		if (toGuess) {
+			if (myValue == value) {
+				button.setBorder(new LineBorder(Color.green, 2));
+			} else {
+				setMyValue(value);
+				button.setBorder(new LineBorder(Color.red, 2));
+			}
+			toGuess = false;
+		}
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -50,6 +62,7 @@ public class Digit implements ActionListener{
 	
 	public void reset(){
 		this.value = 0;
+		this.myValue = 0;
 		button.setBorder(new LineBorder(Color.gray, 1));
 		this.toGuess = true;
 		button.setText("");

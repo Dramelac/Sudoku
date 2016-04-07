@@ -67,6 +67,12 @@ public class Block {
 		}
 	}
 	
+	public void surrende(){
+		for (Digit digit : digits) {
+			digit.surrende();
+		}
+	}
+	
 	public void selectRandomNumber(int i,ArrayList<Integer> mylist) throws Exception{
 		if (mylist.size() == 0) {
 			//System.out.println("Error null size random !");

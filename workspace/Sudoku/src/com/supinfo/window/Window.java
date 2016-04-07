@@ -19,6 +19,7 @@ public class Window extends JFrame implements ActionListener{
 	
 	private JPanel pan = new JPanel();
 	private JButton button = new JButton("Generate");
+	private JButton surrende = new JButton("Abandonner");
 	private JLabel lvl = new JLabel("Choose your level");
 	private String[] messageStrings = {"Easy", "Medium", "Hard"};
 	private JComboBox<String> cmbMessageList = new JComboBox<String>(messageStrings);
@@ -46,11 +47,14 @@ public class Window extends JFrame implements ActionListener{
 		pan.setLayout(null);
 
 		cmbMessageList.setBounds(220, 20, 100, 25);	  
-		button.setBounds(350, 20, 100, 25);
-		lvl.setBounds(100, 20, 100, 30);
-		lblText.setBounds(150, 70, 300, 30);;
+		button.setBounds(350, 20, 100, 25);	  
+		surrende.setBounds(20, 510, 120, 25);
+		lvl.setBounds(100, 20, 150, 30);
+		lblText.setBounds(200, 70, 300, 30);;
 		
 		button.addActionListener(this);
+		surrende.addActionListener(this);
+		surrende.setVisible(false);
 		
 		// Setup Blocks //
 		
@@ -66,6 +70,7 @@ public class Window extends JFrame implements ActionListener{
 		pan.add(lvl);
 		pan.add(lblText);
 		pan.add(button);
+		pan.add(surrende);
 
 		  
 		this.setContentPane(pan);
@@ -101,6 +106,12 @@ public class Window extends JFrame implements ActionListener{
 		}
 	}
 	
+	public void surrende(){
+		lblText.setText("Dommage ...");
+		for (Block block : blocks) {
+			block.surrende();
+		}
+	}
 	
 	public boolean checkWin(){
 		for (int blockX = 0; blockX < 3; blockX++) {
@@ -218,7 +229,10 @@ public class Window extends JFrame implements ActionListener{
 	 	if (source == button){
 	 		reset();
 	 		createGameBoard(cmbMessageList.getSelectedIndex());
-	 	}
+			surrende.setVisible(true);
+	 	} else if (source == surrende) {
+			surrende();
+		}
 	}
 	 	
 
