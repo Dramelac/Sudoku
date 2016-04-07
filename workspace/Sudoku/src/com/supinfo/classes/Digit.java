@@ -71,6 +71,10 @@ public class Digit implements ActionListener{
 		this.value = value;
 		
 	}
+	
+	public int getMyValue() {
+		return this.myValue;
+	}
 
 	public void setMyValue(int myValue) {
 		this.myValue = myValue;

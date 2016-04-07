@@ -72,7 +72,7 @@ public class Window extends JFrame implements ActionListener{
 	}
 	
 	private void createGameBoard(int level){
-		int tourn = 0;
+		// int tourn = 0;
 		while (true) {
 			try {
 				for (int blockLine = 0; blockLine < 3; blockLine++) {
@@ -85,12 +85,12 @@ public class Window extends JFrame implements ActionListener{
 				break;
 			} catch (Exception e) {
 				reset();
-				tourn++;
+				// tourn++;
 			}
 		}
 		
 		
-		lblText.setText("Let's go, Nombre d'essai : " + tourn);
+		lblText.setText("Good luck !");
 		chooseOffer(level);
 	}
 	
@@ -102,15 +102,31 @@ public class Window extends JFrame implements ActionListener{
 	}
 	
 	
-	public void checkWin(){
+	public boolean checkWin(){
 		for (int blockX = 0; blockX < 3; blockX++) {
 			for (int blockY = 0; blockY < 3; blockY++) {
 				for (int digitX = 0; digitX < 3; digitX++) {
 					for (int digitY = 0; digitY < 3; digitY++) {
-						
+						if (!checkValid(blockX, blockY, digitX, digitY)){
+							return false;
+						}
 					}
 				}
 			}
+		}
+		this.lblText.setText("YOU WIN !!");
+		return true;
+	}
+	
+	public boolean checkValid(int BlockX, int BlockY, int DigitX, int DigitY){
+		ArrayList<Integer> blockArray = blocks[BlockX*3 + BlockY].getMyNumbersAvailableInBlock();
+		ArrayList<Integer> lineArray = this.getMyLineArray(3*BlockX, DigitX);
+		ArrayList<Integer> coloneArray = this.getMyColoneArray(BlockY, DigitY);
+		
+		if (blockArray.size() + lineArray.size() + coloneArray.size() == 0){
+			return true;
+		} else {
+			return false;
 		}
 	}
 	
@@ -139,6 +155,19 @@ public class Window extends JFrame implements ActionListener{
 		return listInt;
 	}
 	
+	private ArrayList<Integer> getMyLineArray(int Blockline, int digitLine){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+		
+		for (int i = 0; i < 3; i++) {
+			ArrayList<Integer> temp = blocks[Blockline + i].getMyLine(digitLine);
+			for (Integer integer : temp) {
+				listInt.remove(integer);
+			}
+		}
+		
+		return listInt;
+	}
+	
 	private ArrayList<Integer> getColoneArray(int BlockColone, int digitColone){
 		ArrayList<Integer> listInt = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9));
 		
@@ -152,6 +181,18 @@ public class Window extends JFrame implements ActionListener{
 		return listInt;
 	}
 	
+	private ArrayList<Integer> getMyColoneArray(int BlockColone, int digitColone){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+		
+		for (int i = 0; i < 3; i++) {
+			ArrayList<Integer> temp = blocks[BlockColone + 3*i].getMyColone(digitColone);
+			for (Integer integer : temp) {
+				listInt.remove(integer);
+			}
+		}
+		
+		return listInt;
+	}	
 	
 	public ArrayList<Integer> intersection(ArrayList<Integer> listA, ArrayList<Integer> listB){
 		ArrayList<Integer> list = new ArrayList<Integer>();

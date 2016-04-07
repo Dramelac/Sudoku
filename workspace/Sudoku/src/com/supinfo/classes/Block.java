@@ -88,11 +88,32 @@ public class Block {
 		return listInt;
 	}
 	
+	public ArrayList<Integer> getMyNumbersAvailableInBlock(){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+		
+		for (Digit digit : digits) {
+			int i = digit.getMyValue();
+			listInt.remove((Integer) i);
+		}
+		
+		return listInt;
+	}
+	
 	public ArrayList<Integer> getLine(int line){
 		ArrayList<Integer> listInt = new ArrayList<Integer>(3);
 		
 		for (int i = 0; i < 3; i++) {
 			listInt.add(digits[line*3 + i].getValue());
+		}
+		
+		return listInt;
+	}
+	
+	public ArrayList<Integer> getMyLine(int line){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(3);
+		
+		for (int i = 0; i < 3; i++) {
+			listInt.add(digits[line*3 + i].getMyValue());
 		}
 		
 		return listInt;
@@ -108,6 +129,15 @@ public class Block {
 		return listInt;
 	}
 	
+	public ArrayList<Integer> getMyColone(int colone){
+		ArrayList<Integer> listInt = new ArrayList<Integer>(3);
+		
+		for (int i = 0; i < 3; i++) {
+			listInt.add(digits[colone + 3*i].getMyValue());
+		}
+		
+		return listInt;
+	}
 	
 	public void reset(){
 		for (Digit digit : digits) {
