@@ -77,7 +77,7 @@ public class Window extends JFrame implements ActionListener{
 	}
 	
 	private void createGameBoard(int level){
-		// int tourn = 0;
+		// start grid generation
 		while (true) {
 			try {
 				for (int blockLine = 0; blockLine < 3; blockLine++) {
@@ -87,15 +87,16 @@ public class Window extends JFrame implements ActionListener{
 						}
 					}
 				}
+				// grid success
 				break;
 			} catch (Exception e) {
+				// fail ... retry :
 				reset();
-				// tourn++;
 			}
 		}
 		
-		
 		lblText.setText("Good luck !");
+		// apply difficult
 		chooseOffer(level);
 	}
 	
@@ -143,11 +144,10 @@ public class Window extends JFrame implements ActionListener{
 	
 	public ArrayList<Integer> getAvailableAt(int BlockX, int BlockY, int DigitX, int DigitY){
 		
-		//System.out.println("Block " + BlockX + "/" + BlockY + " || Digit selct : " + DigitX + "/" + DigitY);
+		// all list all parameter
 		ArrayList<Integer> blockArray = blocks[BlockX*3 + BlockY].getNumbersAvailableInBlock();
 		ArrayList<Integer> lineArray = this.getLineArray(3*BlockX, DigitX);
 		ArrayList<Integer> coloneArray = this.getColoneArray(BlockY, DigitY);
-		//System.out.println(coloneArray);
 		
 		return intersection(blockArray, intersection(lineArray, coloneArray));
 	}

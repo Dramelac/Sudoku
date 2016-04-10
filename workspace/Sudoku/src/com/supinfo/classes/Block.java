@@ -75,7 +75,7 @@ public class Block {
 	
 	public void selectRandomNumber(int i,ArrayList<Integer> mylist) throws Exception{
 		if (mylist.size() == 0) {
-			//System.out.println("Error null size random !");
+			// grid generation failed ... throw restart event
 			throw new Exception();
 		}
 		Random randomGenerator = new Random();
