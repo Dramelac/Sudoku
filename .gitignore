@@ -18,3 +18,4 @@ workspace/.recommenders/
 result/*.jar
 *.class
 *.classpath
+!Sudoku.jar
