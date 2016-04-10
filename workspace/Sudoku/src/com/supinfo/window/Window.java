@@ -127,6 +127,7 @@ public class Window extends JFrame implements ActionListener{
 			}
 		}
 		this.lblText.setText("YOU WIN !!");
+		this.surrende.setVisible(false);
 		return true;
 	}
 	
