@@ -19,7 +19,7 @@ public class Window extends JFrame implements ActionListener{
 	
 	private JPanel pan = new JPanel();
 	private JButton button = new JButton("Generate");
-	private JButton surrende = new JButton("Abandonner");
+	private JButton surrende = new JButton("Surrender");
 	private JLabel lvl = new JLabel("Choose your level");
 	private String[] messageStrings = {"Easy", "Medium", "Hard"};
 	private JComboBox<String> cmbMessageList = new JComboBox<String>(messageStrings);
@@ -46,10 +46,10 @@ public class Window extends JFrame implements ActionListener{
 		 
 		pan.setLayout(null);
 
-		cmbMessageList.setBounds(220, 20, 100, 25);	  
-		button.setBounds(350, 20, 100, 25);	  
+		cmbMessageList.setBounds(200, 20, 85, 25);	  
+		button.setBounds(320, 20, 125, 25);	  
 		surrende.setBounds(20, 510, 120, 25);
-		lvl.setBounds(100, 20, 150, 30);
+		lvl.setBounds(60, 20, 150, 30);
 		lblText.setBounds(200, 70, 300, 30);;
 		
 		button.addActionListener(this);
@@ -107,7 +107,7 @@ public class Window extends JFrame implements ActionListener{
 	}
 	
 	public void surrende(){
-		lblText.setText("Dommage ...");
+		lblText.setText("Nice Try ...");
 		for (Block block : blocks) {
 			block.surrende();
 		}
